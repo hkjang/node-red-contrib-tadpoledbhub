@@ -2,7 +2,7 @@ node-red-contrib-tadpoledbhub
 ========================
 
 A <a href="http://nodered.org" target="_new">Node-RED</a> 
-node to get response to  <a href="http://tadpoledbhub.com" target="_new"> tadpoledbhub api hub</a>.
+node to get response to  <a href="https://tadpoledbhub.atlassian.net/wiki/spaces/TADPOLE/pages/21528941" target="_new"> tadpoledbhub api hub</a>.
 
 Install
 -------
