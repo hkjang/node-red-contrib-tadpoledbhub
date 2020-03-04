@@ -1,0 +1,50 @@
+
+<script type="text/x-red" data-template-name="tadpoledbhub">
+    <div class="form-row">
+        <label for="node-input-tadpoledbhubAPIURL"><i class="fa fa-link"></i> API URL</label>
+        <input type="text" id="node-input-tadpoledbhubAPIURL" placeholder="Tadpole DB Hub API URL" style=" vertical-align: top;">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-accessKey"><i class="fa fa-key"></i> access key</label>
+        <input type="text" id="node-input-accessKey" placeholder="TDB_ACCESS_KEY">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-secretKey"><i class="fa fa-key"></i> secret key</label>
+        <input type="text" id="node-input-secretKey" placeholder="TDB_SECRET_KEY">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="tadpoledbhub">
+   <p>Request <b>msg.payload</b> params to Tadpole DB Hub API.</p>
+   <p>Simple way to get to Tadpole DB Hub API.</p>
+   <p><a href="https://tadpoledbhub.atlassian.net/wiki/spaces/TADPOLE/pages/21528941/1.+API+Hub" target="_new">ref this</a></p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('tadpoledbhub',{
+        category: 'function',
+        defaults: {
+            tadpoledbhubAPIURL: {value:"", required:true},
+            accessKey: {value:"", required:true},
+            secretKey: {value:"", required:true}
+        },
+        // credentials: {
+        //     accessKey: {type: "password"},
+        //     secretKey: {type: "password"}
+        // },
+        color:"#81c147",
+        icon: "tadpoledbhub.png",
+        align: "right",
+        inputs:1,
+        outputs:1,
+        label: function() {
+            return this.name||"tadpoledbhub";
+        },
+        labelStyle: function() {
+            return this.name?"node_label_italic":"";
+        }
+    });
+
+</script>
