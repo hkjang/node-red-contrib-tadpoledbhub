@@ -30,12 +30,12 @@ module.exports = function(RED) {
             try {
                 request({
                     method: 'GET',
-                    uri: tadpoledbhubAPIURL,
+                    url: tadpoledbhubAPIURL,
                     headers: {
                         'TDB_ACCESS_KEY': accessKey,
                         'TDB_SECRET_KEY': secretKey
                     },
-                    query: JSON.stringify(data)
+                    qs: data
                 }, function (err, res, body) {
                     if(err){
                         console.trace();
