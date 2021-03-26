@@ -1,12 +1,10 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/node-red-contrib-tadpoledbhub/-/node-red-contrib-tadpoledbhub-1.0.0.tgz",
-  "_shasum": "ed92af3e3bdeefc1c2baf0370ae93b00399b920b",
-  "_spec": "node-red-contrib-tadpoledbhub@1.0.0",
+  "_resolved": "https://registry.npmjs.org/node-red-contrib-tadpoledbhub/-/node-red-contrib-tadpoledbhub-1.0.1.tgz",
   "_where": "C:\\Users\\user\\.node-red",
   "author": {
     "name": "hkjang",

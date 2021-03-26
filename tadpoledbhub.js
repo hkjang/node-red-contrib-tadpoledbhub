@@ -57,7 +57,7 @@ module.exports = function(RED) {
         });
     }
 
-    RED.nodes.registerType("tadpoledbhub", FunctionNode, {
+    RED.nodes.registerType("tadpoledbhub", tadpoledbhubOut, {
         credentials: {
             accessKey: {type:"text"},
             secretKey: {type:"text"}
