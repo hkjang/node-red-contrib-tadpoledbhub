@@ -4,16 +4,11 @@
         <label for="node-input-tadpoledbhubAPIURL"><i class="fa fa-link"></i> API URL</label>
         <input type="text" id="node-input-tadpoledbhubAPIURL" placeholder="Tadpole DB Hub API URL" style=" vertical-align: top;">
     </div>
-
     <div class="form-row">
-        <label for="node-input-accessKey"><i class="fa fa-key"></i> access key</label>
-        <input type="text" id="node-input-accessKey" placeholder="TDB_ACCESS_KEY">
+        <label for="node-input-creds"> <i class="fa fa-key fa-fw"></i> API Key</span></label>
+        <input type="text" id="node-input-creds">
     </div>
 
-    <div class="form-row">
-        <label for="node-input-secretKey"><i class="fa fa-key"></i> secret key</label>
-        <input type="text" id="node-input-secretKey" placeholder="TDB_SECRET_KEY">
-    </div>
 </script>
 
 <script type="text/x-red" data-help-name="tadpoledbhub">
@@ -27,13 +22,11 @@
         category: 'function',
         defaults: {
             tadpoledbhubAPIURL: {value:"", required:true},
-            accessKey: {value:"", required:true},
-            secretKey: {value:"", required:true}
+            creds: {
+                value: "",
+                type: "tadpoleKey"
+            },
         },
-        // credentials: {
-        //     accessKey: {type: "password"},
-        //     secretKey: {type: "password"}
-        // },
         color:"#81c147",
         icon: "tadpoledbhub.png",
         align: "left",
@@ -47,4 +40,37 @@
         }
     });
 
+</script>
+
+
+
+<script type="text/x-red" data-template-name="tadpoleKey">
+    <div class="form-row">
+        <label for="node-input-name"> <i class="fa fa-tag fa-fw"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+      <label for="node-config-input-accessKey"> Access Key</label>
+      <input type="text" id="node-config-input-accessKey" placeholder="Access Key">
+    </div>
+    <div class="form-row">
+      <label for="node-config-input-secretKey"> Secret Key</label>
+      <input type="text" id="node-config-input-secretKey" placeholder="Secret Key">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('tadpoleKey', {
+        category: 'config',
+        defaults: {
+            name: {value:""}
+        },
+        credentials: {
+            accessKey: {},
+            secretKey: {},
+        },
+        label: function () {
+            return this.name || 'API Key';
+        }
+    });
 </script>

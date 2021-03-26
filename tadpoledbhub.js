@@ -8,11 +8,15 @@ module.exports = function(RED) {
 
     function tadpoledbhubOut(n) {
         RED.nodes.createNode(this,n);
-        var self = this;
+        if (RED.nodes.getNode(n.creds)){
+            this.accessKey = RED.nodes.getNode(n.creds).credentials.accessKey;
+            this.secretKey = RED.nodes.getNode(n.creds).credentials.secretKey;
+        } else {
+            this.accessKey = "";
+            this.secretKey = "";
+        }
 
         this.tadpoledbhubAPIURL = n.tadpoledbhubAPIURL;
-        this.accessKey = n.accessKey || "";
-        this.secretKey = n.secretKey || "";
         var node = this;
 
         this.on('input', function (msg) {
@@ -42,7 +46,7 @@ module.exports = function(RED) {
                         node.log(err,msg);
                     }else{
                         msg.payload = body;
-                        self.send(msg);
+                        node.send(msg);
                     }
                 });
             }
@@ -52,5 +56,25 @@ module.exports = function(RED) {
             }
         });
     }
-    RED.nodes.registerType("tadpoledbhub", tadpoledbhubOut);
+
+    RED.nodes.registerType("tadpoledbhub", FunctionNode, {
+        credentials: {
+            accessKey: {type:"text"},
+            secretKey: {type:"text"}
+        }
+    });
+
+    function tadpoleKey(n){
+        RED.nodes.createNode(this, n);
+        this.accessKey = n.accessKey;
+        this.secretKey = n.secretKey;
+    }
+
+    RED.nodes.registerType("tadpoleKey", tadpoleKey,{
+        credentials: {
+            accessKey: {type:"text"},
+            secretKey: {type:"text"}
+        }
+    });
+
 };

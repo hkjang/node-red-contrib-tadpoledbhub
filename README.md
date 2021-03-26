@@ -7,7 +7,9 @@ node to get response to  <a href="https://tadpoledbhub.atlassian.net/wiki/spaces
 Install
 -------
 
-Run the following command in the root directory of your Node-RED install:
+To install the stable version use the `Menu - Manage palette - Install`
+option and search for node-red-contrib-sk11st, or run the following
+command in your Node-RED user directory, typically `~/.node-red`
 
     npm install node-red-contrib-tadpoledbhub
 
@@ -19,8 +21,6 @@ Usage
 <i><a href="http://www.tadpolehub.com" target="_new">Tadpole DB Hub</a></i> api request node.
 
 Expects a <b>msg.payload</b> with request params.
-
-<a href="https://www.buymeacoffee.com/gagagiga" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
 ### API URL
 The url to call the Tadpole DB Hub API.
